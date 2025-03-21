@@ -1,0 +1,51 @@
+Investigación IPTables 
+
+Luis Carlos Leaño Martin 
+
+¿Qué son las IPTables? (15 puntos) 
+
+Estas son una herramienta del firewall para Linux como si fuera un filtro entre la computadora y la red, esta herramienta te permite definir las reglas para que puedas controlar el tráfico diciendo que se permite y que se bloquea. 
+
+¿Diferencias entre "ACCEPT", "DROP", y "RETURN"?  (20 puntos) 
+
+ACCEPT: Estamos aceptando el paquete totalmente 
+
+DROP: Estamos denegando el paquete totalmente 
+
+RETURN: Significa dejar de atravesar esta cadena y continuar en la siguiente regla de la cadena anterior (de llamada). Si se alcanza el final de una cadena integrada o una regla de una cadena integrada con el objetivo RETURN coincide, el destino especificado por la política de cadena determina el destino del paquete. 
+
+Explicar el uso de las cadenas "INPUT", "FORWARD", "OUTPUT" (15 puntos) 
+
+INPUT (de entrada): Se usa para manejo de paquetes que van destinados a tu máquina. 
+
+FORWARD (de reenvió): Se usa para el manejo de paquetes que pasan por tu máquina. 
+
+OUTPUT (de salida): Los paquetes locales que tu generas antes de salir. 
+
+Indicar la o las reglas para permitir el tráfico entrante al equipo, en sus puertos de TCP 22, 80, y 443 (20 puntos) 
+
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT 
+
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT 
+
+sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT 
+
+Conclusiones (media hoja, 30 puntos). 
+
+Iptables es una herramienta de Linux, que es esencial que sepamos ya que se usa para proteger redes y servidores con firewall, lo padre de esta es que vi que es muy flexible y te deja controlar el tráfico muy fácil, ya que tú puedes hacer tus reglas específicas que quieres que haga. Como por ejemplo con esta herramienta nosotros podemos decir que paquetes queremos que si lleguen al servidor y cuales no, es capaz de mejorar el rendimiento de nuestros sistemas. Una de las formas es, a través de la configuración de paquetes. Si estos cuentan con actividad limitada de ancho de banda, se pueden establece la cantidad de los mismos que se pueden enviar o recibir en un tiempo determinado. Esto evita las sobrecargar del sistema, y asegura que el tráfico tenga una distribución uniforme. La estructura de iptables se basa en tablas, muchas ya están creadas de forma predeterminada. Dentro de las tablas tenemos las cadenas, también tenemos algunas creadas de forma predeterminada, dentro de las cadenas tenemos las diferentes reglas que podemos configurar. 
+
+Condiciones principales: 
+
+-p, –protocol 
+
+-d, –destination address 
+
+-m, –match 
+
+-j, –jump target 
+
+-g, –goto chain 
+
+-i, –in-interface name  
+
+-o, –out-interface name. 
